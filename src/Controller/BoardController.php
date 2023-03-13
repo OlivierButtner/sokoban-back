@@ -51,7 +51,7 @@ class BoardController extends AbstractController
         catch(\Exception $e)
         {
             return $response = new Response(
-                "Aucun tableau existe pour la valeur passé en paramètre",
+                "Le paramètre ne peut pas etre converti en nombre.",
                 Response::HTTP_BAD_REQUEST,
                 ['content-type' => 'json']
             );
@@ -64,15 +64,12 @@ class BoardController extends AbstractController
 
             $boardArray = array();
             foreach($board->getRows() as $row) {
-                // $boardArray[] = [
-                //     str_split($row->getDescription()),
-                // ];
                 array_push($boardArray, str_split($row->getDescription()));
             }
             return $this->json($boardArray, Response::HTTP_OK);
         }else{
             return new Response(
-                "Aucun tableau existe pour la valeur passé en paramètre",
+                "Aucun tableau existe pour la valeur passé en paramètre.",
                 Response::HTTP_BAD_REQUEST,
                 ['content-type' => 'json']
             );
