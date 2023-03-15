@@ -25,6 +25,8 @@ class BoardController extends AbstractController
             $arrayNameIdBoards[] = [
                 "id" => $board->getId(),
                 "name" => $board->getName(),
+                "nbCol" => $board->getCol(),
+                "nbRow" => $board->getRow()
             ];
         }
 
